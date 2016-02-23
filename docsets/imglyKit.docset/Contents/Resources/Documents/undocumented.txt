@@ -1,0 +1,758 @@
+AnimationDelegate.swift
+	@objc(IMGLYAnimationDelegate) public class AnimationDelegate: NSObject
+	public let block: AnimationDelegateBlock
+	public override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+SliderEditorViewController.swift
+	@objc(IMGLYSliderEditorViewController) public class SliderEditorViewController: SubEditorViewController
+	public private(set) lazy var slider: UISlider =
+	public var minimumValue: Float
+	public var maximumValue: Float
+	public var initialValue: Float
+	public override var options: SliderEditorViewControllerOptions
+	override public func viewDidLoad()
+	public func valueChanged(value: Float)
+TextLabel.swift
+	public class TextLabel: UILabel
+	public var activateHandler: (() -> Void)?
+	public var decrementHandler: (() -> Void)?
+	public var incrementHandler: (() -> Void)?
+	public var rotateLeftHandler: (() -> Void)?
+	public var rotateRightHandler: (() -> Void)?
+	public var changeTextHandler: (() -> Void)?
+	public required init?(coder aDecoder: NSCoder)
+	public override func accessibilityActivate() -> Bool
+	override public func accessibilityDecrement()
+	override public func accessibilityIncrement()
+BreezeFilter.swift
+	required public init()
+FilterSelectionController.swift
+	@objc(IMGLYFilterSelectionController) public class FilterSelectionController: UICollectionViewController
+	public var dataSource: FiltersDataSourceProtocol = FiltersDataSource()
+	public var selectedBlock: FilterTypeSelectedBlock?
+	public var activeFilterType: FilterTypeActiveBlock?
+	public init()
+	@objc(IMGLYFilterSelectionController) public class FilterSelectionController : UICollectionViewController
+	public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+	public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+	@objc(IMGLYFilterSelectionController) public class FilterSelectionController : UICollectionViewController
+	public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+WinterFilter.swift
+	required public init()
+QuoziFilter.swift
+	required public init()
+EnhancementFilter.swift
+	public func reset()
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+BorderFilter.swift
+	@objc(IMGLYBorderFilter) public class BorderFilter: CIFilter, Filter
+	@objc(IMGLYBorderFilter) public class BorderFilter : CIFilter, Filter
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+EffectFilter.swift
+	@objc(IMGLYEffectFilter) public protocol EffectFilter: Filter
+	var filterType: FilterType { get }
+	var displayName: String { get }
+	var inputIntensity: NSNumber { get set }
+CameraController.swift
+	public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+StickersEditorViewController.swift
+	@objc public enum StickerAction: Int
+	case Delete
+	case BringToFront
+	case FlipHorizontally
+	case FlipVertically
+	@objc(IMGLYStickersEditorViewController) public class StickersEditorViewController: SubEditorViewController
+	public var stickersDataSource = StickersDataSource()
+	public private(set) lazy var stickersClipView: UIView =
+	public private(set) lazy var deleteButton: UIButton =
+	public private(set) lazy var flipHorizontalButton: UIButton =
+	public private(set) lazy var flipVerticalButton: UIButton =
+	public private(set) lazy var bringToFrontButton: UIButton =
+	public override var options: StickersEditorViewControllerOptions
+	public override func tappedDone(sender: UIBarButtonItem?)
+	@objc(IMGLYStickersEditorViewController) public class StickersEditorViewController : SubEditorViewController
+	public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+	public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+	public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+	@objc(IMGLYStickersEditorViewController) public class StickersEditorViewController : SubEditorViewController
+	public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	@objc(IMGLYStickersEditorViewController) public class StickersEditorViewController : SubEditorViewController
+	public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+SunsetFilter.swift
+	required public init()
+TiltshiftFilter.swift
+	@objc public enum TiltshiftType: Int
+	case Off
+	case Box
+	case Circle
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+OverlayConverter.swift
+	@objc(IMGLYOverlayConverter) public class OverlayConverter: NSObject
+	public func addUIElementsFromSpriteFilters(spriteFilters: [Filter], containerView: UIView, previewSize: CGSize)
+	public func addSpriteFiltersFromUIElements(containerView: UIView, previewSize: CGSize, previewImage: UIImage) -> Bool
+	public func initialSizeForStickerImage(image: UIImage, containerView: UIView) -> CGSize
+ClassicFilter.swift
+	required public init()
+TextCaptionButton.swift
+	@objc(IMGLYTextCaptionButton) public class TextCaptionButton: UIControl
+	public private(set) lazy var textLabel: UILabel =
+	public private(set) lazy var titleView: UILabel =
+	public override var highlighted: Bool
+	public override var selected: Bool
+	public var fontSize = CGFloat(20)
+	public var fontName = ""
+	public override func sizeThatFits(size: CGSize) -> CGSize
+	public override class func requiresConstraintBasedLayout() -> Bool
+BleachedFilter.swift
+	required public init()
+FontSelectorView.swift
+	@objc(IMGLYFontSelectorViewDelegate) public protocol FontSelectorViewDelegate
+	func fontSelectorView(fontSelectorView: FontSelectorView, didSelectFontWithName fontName: String)
+	@objc(IMGLYFontSelectorView) public class FontSelectorView: UIScrollView
+	public var selectedTextColor = UIColor(red:0.22, green:0.62, blue:0.85, alpha:1)
+	public var textColor = UIColor.whiteColor()
+	public var labelColor = UIColor.whiteColor()
+	public var selectedFontName = ""
+	public var text = ""
+	public var fontSelectorButtonConfigurationClosure: FontSelectorButtonConfigurationClosure? = nil
+	public override func layoutSubviews()
+EightiesFilter.swift
+	required public init()
+ElderFilter.swift
+	required public init()
+BlueShadowsFilter.swift
+	required public init()
+ResponseFilter.swift
+	public var inputIntensity = NSNumber(float: 1)
+	public let responseName: String
+	public required convenience override init()
+	public override var outputImage: CIImage?
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+Pola669Filter.swift
+	required public init()
+PlateFilter.swift
+	required public init()
+RemoteBorderDataSource.swift
+	@objc(IMGLYRemoteBordersDataSource) public class RemoteBordersDataSource: NSObject, BordersDataSourceProtocol, NSURLConnectionDelegate
+AD1920Filter.swift
+	required public init()
+ScaleFilter.swift
+	@objc(IMGLYScaleFilter) public class ScaleFilter: CIFilter, Filter
+	public var inputImage: CIImage?
+	public var scale = Float(1)
+	@objc(IMGLYScaleFilter) public class ScaleFilter : CIFilter, Filter
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+TwilightFilter.swift
+	required public init()
+SinFilter.swift
+	required public init()
+PhotoProcessor.swift
+	@objc public enum FilterType: Int
+	case None,
+	K1,
+	K2,
+	K6,
+	KDynamic,
+	Fridge,
+	Breeze,
+	Orchid,
+	Chest,
+	Front,
+	Fixie,
+	X400,
+	BW,
+	AD1920,
+	Lenin,
+	Quozi,
+	Pola669,
+	PolaSX,
+	Food,
+	Glam,
+	Celsius,
+	Texas,
+	Lomo,
+	Goblin,
+	Sin,
+	Mellow,
+	Soft,
+	Blues,
+	Elder,
+	Sunset,
+	Evening,
+	Steel,
+	Seventies,
+	HighContrast,
+	BlueShadows,
+	Highcarb,
+	Eighties,
+	Colorful,
+	Lomo100,
+	Pro400,
+	Twilight,
+	CottonCandy,
+	Pale,
+	Settled,
+	Cool,
+	Litho,
+	Ancient,
+	Pitched,
+	Lucid,
+	Creamy,
+	Keen,
+	Tender,
+	Bleached,
+	BleachedBlue,
+	Fall,
+	Winter,
+	SepiaHigh,
+	Summer,
+	Classic,
+	NoGreen,
+	Neat,
+	Plate
+	@objc(IMGLYPhotoProcessor) public class PhotoProcessor: NSObject
+	public class func processWithCIImage(image: CIImage, filters: [Filter]) -> CIImage?
+	public class func processWithUIImage(image: UIImage, filters: [Filter]) -> UIImage?
+NavigationController.swift
+	@objc(IMGLYNavigationController) public class NavigationController: UINavigationController
+	override public func shouldAutorotate() -> Bool
+	override public func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation
+CropRectComponent.swift
+	@objc(IMGLYCropRectComponent) public class CropRectComponent: NSObject
+	public var cropRect = CGRect.zero
+	public var topLeftAnchor: UIImageView?
+	public var topRightAnchor: UIImageView?
+	public var bottomLeftAnchor: UIImageView?
+	public var bottomRightAnchor: UIImageView?
+	public func layoutViewsForCropRect()
+	public func showViews()
+HighContrastFilter.swift
+	required public init()
+Sticker.swift
+	@objc(IMGLYSticker) public class Sticker: NSObject
+	public let image: UIImage
+	public let thumbnail: UIImage?
+	public let label: String?
+	public init(image: UIImage, thumbnail: UIImage?, label: String?)
+CropFilter.swift
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+CreamyFilter.swift
+	required public init()
+HuePickerView.swift
+	@objc(IMGLYHuePickerViewDelegate) public protocol HuePickerViewDelegate
+	func huePicked(huePickerView: HuePickerView, hue: CGFloat)
+	@objc(IMGLYHuePickerView) public class HuePickerView: UIView
+	public var hue = CGFloat(0)
+	public var color = UIColor.redColor()
+	public override func drawRect(rect: CGRect)
+	public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+MellowFilter.swift
+	required public init()
+SoftFilter.swift
+	required public init()
+CircleGradientView.swift
+	public func configureControlPoints()
+	public func configurePanGestureRecognizer()
+	public func configurePinchGestureRecognizer()
+	public override func accessibilityIncrement()
+	public override func accessibilityDecrement()
+TextFilter.swift
+	@objc(IMGLYTextFilter) public class TextFilter: CIFilter, Filter
+	public var transform = CGAffineTransformIdentity
+	public func textImageSizeFromImageSize(imageSize: CGSize) -> CGSize
+	public func rotateTextRight ()
+	public func rotateTextLeft ()
+	public func flipTextHorizontal ()
+	public func flipTextVertical ()
+	@objc(IMGLYTextFilter) public class TextFilter : CIFilter, Filter
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+SepiaHighFilter.swift
+	required public init()
+FiltersDataSource.swift
+	public var filterCount: Int
+	public func filterTypeAtIndex(index: Int) -> FilterType
+	public func previewImageForFilterAtIndex(index: Int) -> UIImage
+	public func titleForFilterAtIndex(index: Int) -> String
+	public func selectedImageForFilterAtIndex(index: Int) -> UIImage
+	public func initialIntensityForFilterAtIndex(index: Int) -> Float
+InstanceFactory.swift
+	public class func fontImporter() -> FontImporter
+LomoFilter.swift
+	required public init()
+ImageCaptionButton.swift
+	@objc(IMGLYImageCaptionButton) public class ImageCaptionButton: UIControl
+	public private(set) lazy var textLabel: UILabel =
+	public private(set) lazy var imageView: UIImageView =
+	public override var highlighted: Bool
+	public override var selected: Bool
+	public override func sizeThatFits(size: CGSize) -> CGSize
+	public override class func requiresConstraintBasedLayout() -> Bool
+K6Filter.swift
+	required public init()
+BoxGradientView.swift
+	public struct Line
+	public let start: CGPoint
+	public let end: CGPoint
+	public override func accessibilityIncrement()
+	public override func accessibilityDecrement()
+VideoRecordButton.swift
+	public final class VideoRecordButton: UIControl
+	public var recording = false
+	override public func layoutSubviews()
+	public override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool
+	public override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?)
+	public override func cancelTrackingWithEvent(event: UIEvent?)
+OrientationEditorViewController.swift
+	@objc public enum OrientationAction: Int
+	case RotateLeft
+	case RotateRight
+	case FlipHorizontally
+	case FlipVertically
+	@objc(IMGLYOrientationEditorViewController) public class OrientationEditorViewController: SubEditorViewController
+	public private(set) lazy var rotateLeftButton: ImageCaptionButton =
+	public private(set) lazy var rotateRightButton: ImageCaptionButton =
+	public private(set) lazy var flipHorizontallyButton: ImageCaptionButton =
+	public private(set) lazy var flipVerticallyButton: ImageCaptionButton =
+	override public func viewDidLoad()
+	public override func viewDidLayoutSubviews()
+	public override var options: OrientationEditorViewControllerOptions
+	public override func tappedDone(sender: UIBarButtonItem?)
+MainEditorAction.swift
+	public let title: String?
+	public let image: UIImage?
+	public let selectedImage: UIImage?
+	public let editorType: MainEditorActionType
+Filter.swift
+	@objc(IMGLYFilter) public protocol Filter: NSCopying
+	var inputImage: CIImage? { get set }
+	var outputImage: CIImage? { get }
+FoodFilter.swift
+	required public init()
+ContrastEditorViewController.swift
+	@objc(IMGLYContrastEditorViewController) public class ContrastEditorViewController: SliderEditorViewController
+	override public func viewDidLoad()
+	override public var options: SliderEditorViewControllerOptions
+	override public var minimumValue: Float
+	override public var maximumValue: Float
+	override public var initialValue: Float
+	override public func valueChanged(value: Float)
+K1Filter.swift
+	required public init()
+Lomo100Filter.swift
+	required public init()
+Configuration.swift
+	public enum ConfigurationError: ErrorType
+	case ReplacingClassNotASubclass
+SeventiesFilter.swift
+	required public init()
+FocusEditorViewController.swift
+	case Off
+	case Linear
+	case Radial
+	@objc(IMGLYFocusEditorViewController) public class FocusEditorViewController: SubEditorViewController
+	public private(set) lazy var offButton: ImageCaptionButton =
+	public private(set) lazy var linearButton: ImageCaptionButton =
+	public private(set) lazy var radialButton: ImageCaptionButton =
+	public override var options: FocusEditorViewControllerOptions
+	public override func zoomingImageViewDidZoom(zoomingImageView: ZoomingImageView)
+	override public func viewDidLoad()
+	@objc(IMGLYFocusEditorViewController) public class FocusEditorViewController : SubEditorViewController
+	public func userInteractionStarted()
+	public func userInteractionEnded()
+	public func controlPointChanged()
+FontButton.swift
+	@objc(IMGLYFontButton) public class FontButton: UIButton
+	public var hasFocus = false
+	public var selectionColor = UIColor(red:0.22, green:0.62, blue:0.85, alpha:1)
+	public var textColor = UIColor.whiteColor()
+	public var labelColor = UIColor.whiteColor()
+	public var fontName = ""
+	public var displayName = ""
+	public var fontSize = CGFloat(20)
+	public override var frame: CGRect
+EditorViewController.swift
+	@objc(IMGLYEditorViewController) public class EditorViewController: UIViewController
+	public var shouldShowActivityIndicator = true
+	public var updating = false
+	public var lowResolutionImage: UIImage?
+	public private(set) lazy var previewImageView: ZoomingImageView =
+	public private(set) lazy var bottomContainerView: UIView =
+	public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+	override public func viewDidLoad()
+	public override func preferredStatusBarStyle() -> UIStatusBarStyle
+	public override func prefersStatusBarHidden() -> Bool
+	public override func shouldAutorotate() -> Bool
+	public override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation
+	public func tappedDone(sender: UIBarButtonItem?)
+	@objc(IMGLYEditorViewController) public class EditorViewController : UIViewController
+	public func zoomingImageViewDidZoom(zoomingImageView: ZoomingImageView)
+FallFilter.swift
+	required public init()
+OrchidFilter.swift
+	required public init()
+SummerFilter.swift
+	required public init()
+K2Filter.swift
+	required public init()
+NoGreenFilter.swift
+	required public init()
+KeenFilter.swift
+	required public init()
+SaturationEditorViewController.swift
+	@objc(IMGLYSaturationEditorViewController) public class SaturationEditorViewController: SliderEditorViewController
+	override public func viewDidLoad()
+	override public var options: SliderEditorViewControllerOptions
+	override public var minimumValue: Float
+	override public var maximumValue: Float
+	override public var initialValue: Float
+	override public func valueChanged(value: Float)
+TenderFilter.swift
+	required public init()
+UIColorExtension.swift
+	public class HSB
+	public var hue = CGFloat(0)
+	public var saturation = CGFloat(0)
+	public var brightness = CGFloat(0)
+	public var hsb: HSB
+LucidFilter.swift
+	required public init()
+TexasFilter.swift
+	required public init()
+FrontFilter.swift
+	required public init()
+InstanceFactoryExtension.swift
+	public class func filterEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> FilterEditorViewController
+	public class func stickersEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> StickersEditorViewController
+	public class func orientationEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> OrientationEditorViewController
+	public class func focusEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> FocusEditorViewController
+	public class func cropEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> CropEditorViewController
+	public class func brightnessEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> BrightnessEditorViewController
+	public class func contrastEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> ContrastEditorViewController
+	public class func saturationEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> SaturationEditorViewController
+	public class func textEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> TextEditorViewController
+	public class func borderEditorViewControllerWithFixedFilterStack(fixedFilterStack: FixedFilterStack, configuration: Configuration) -> BorderEditorViewController
+	public class func circleGradientView() -> CircleGradientView
+	public class func boxGradientView() -> BoxGradientView
+	public class func cropRectComponent() -> CropRectComponent
+PaleFilter.swift
+	required public init()
+UIImageExtension.swift
+	public var description: String
+Border.swift
+	@objc(IMGLYBorder) public class Border: NSObject
+CropEditorViewController.swift
+	public let kMinimumCropSize = CGFloat(50)
+	@objc(IMGLYCropEditorViewController) public class CropEditorViewController: SubEditorViewController
+	public var selectionMode: CropRatio?
+	override public func viewDidLoad()
+	public override var options: CropEditorViewControllerOptions
+	public override func zoomingImageViewDidZoom(zoomingImageView: ZoomingImageView)
+	public override func tappedDone(sender: UIBarButtonItem?)
+	public func handlePan(recognizer: UIPanGestureRecognizer)
+	public func handlePanOnTopLeft(recognizer: UIPanGestureRecognizer)
+GradientViewDelegate.swift
+	@objc(IMGLYGradientViewDelegate) public protocol GradientViewDelegate
+	func userInteractionStarted()
+	func userInteractionEnded()
+	func controlPointChanged()
+TextEditorViewControllerOptions.swift
+	public let fontQuickSelectorButtonConfigurationClosure: FontQuickSelectorButtonConfigurationClosure?
+	public var fontQuickSelectorButtonConfigurationClosure: FontQuickSelectorButtonConfigurationClosure? = nil
+BordersDataSource.swift
+	@objc(IMGLYBordersDataSourceProtocol) public protocol BordersDataSourceProtocol
+	@objc(IMGLYBordersDataSource) public class BordersDataSource: NSObject, BordersDataSourceProtocol
+NeatFilter.swift
+	required public init()
+GlamFilter.swift
+	required public init()
+CottonCandyFilter.swift
+	required public init()
+BluesFilter.swift
+	required public init()
+CoolFilter.swift
+	required public init()
+TextColorSelectorView.swift
+	@objc(IMGLYTextColorSelectorViewDelegate) public protocol TextColorSelectorViewDelegate
+	func textColorSelectorView(selectorView: TextColorSelectorView, didSelectColor color: UIColor)
+	@objc(IMGLYTextColorSelectorView) public class TextColorSelectorView: UIScrollView
+	public override func layoutSubviews()
+OrientationCropFilter.swift
+	case Deg0
+	case Deg90
+	case Deg180
+	case Deg270
+	public var cropRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+LeninFilter.swift
+	required public init()
+FilterEditorViewController.swift
+	@objc(IMGLYFilterEditorViewController) public class FilterEditorViewController: SubEditorViewController
+	public let filterSelectionController = FilterSelectionController()
+	public private(set) lazy var filterIntensitySlider: UISlider =
+	override public func viewDidLoad()
+	public override func viewDidAppear(animated: Bool)
+	public override func viewWillDisappear(animated: Bool)
+	public override var options: FilterEditorViewControllerOptions
+EveningFilter.swift
+	required public init()
+PullableView.swift
+	@objc(IMGLYPullableViewDelegate) public protocol PullableViewDelegate
+	func pullableView(pView: PullableView, didChangeState opend: Bool)
+	@objc(IMGLYPullableView) public class PullableView: UIView, UIGestureRecognizerDelegate
+	public var marginConstraint: NSLayoutConstraint?
+	public var openedMargin = CGFloat(0)
+	public var closedMargin = CGFloat(800)
+	public var handleView = UIView()
+	public var opened = false
+	public var handleColor = UIColor.whiteColor()
+	public var handleBackgroundColor = UIColor(red:0.16, green:0.16, blue:0.16, alpha:1)
+	public let handleHeight = CGFloat(26)
+	@objc override public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
+StickerFilter.swift
+	@objc(IMGLYStickerFilter) public class StickerFilter: CIFilter, Filter
+	public var sticker: UIImage?
+	public func absoluteStickerSizeForImageSize(imageSize: CGSize) -> CGSize
+	public func rotateRight ()
+	public func rotateLeft ()
+	public func flipStickersHorizontal ()
+	public func flipStickersVertical ()
+	@objc(IMGLYStickerFilter) public class StickerFilter : CIFilter, Filter
+	public override func copyWithZone(zone: NSZone) -> AnyObject
+PathHelper.swift
+	@objc(IMGLYPathHelper)  public class PathHelper: NSObject
+	static public func clipCornersToOvalWidth(context: CGContextRef, width: CGFloat, height: CGFloat, ovalWidth: CGFloat, ovalHeight: CGFloat)
+AncientFilter.swift
+	required public init()
+BWFilter.swift
+	required public init()
+ChestFilter.swift
+	required public init()
+TextButton.swift
+	@objc(IMGLYTextButton) public class TextButton: UIButton
+	public var labelColor = UIColor.whiteColor()
+	public var fontName = ""
+	public override var frame: CGRect
+	public var displayName = ""
+SettledFilter.swift
+	required public init()
+SteelFilter.swift
+	required public init()
+Pro400Filter.swift
+	required public init()
+ZoomingImageView.swift
+	@objc(IMGLYZoomingImageViewDelegate) public protocol ZoomingImageViewDelegate: class
+	func zoomingImageViewDidZoom(zoomingImageView: ZoomingImageView)
+	@objc(IMGLYZoomingImageView) public class ZoomingImageView: UIScrollView
+	public var image: UIImage?
+	public lazy var doubleTapGestureRecognizer: UITapGestureRecognizer =
+	public var visibleImageFrame: CGRect
+	public override func layoutSubviews()
+	@objc(IMGLYZoomingImageView) public class ZoomingImageView : UIScrollView
+	public func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+	public func scrollViewDidZoom(scrollView: UIScrollView)
+FixieFilter.swift
+	required public init()
+MainEditorActionsDataSource.swift
+	public var actionCount: Int
+	public func actionAtIndex(index: Int) -> MainEditorAction
+KDynamicFilter.swift
+	required public init()
+BorderStore.swift
+	public var jsonParser: JSONParserProtocol = JSONParser()
+AlphaPickerView.swift
+	public override func drawRect(rect: CGRect)
+ColorfulFilter.swift
+	required public init()
+PolaSXFIlter.swift
+	required public init()
+SaturationBrightnessPickerView.swift
+	@objc(IMGLYSaturationBrightnessPickerViewDelegate) public protocol SaturationBrightnessPickerViewDelegate
+	func colorPicked(saturationBrightnessPickerView: SaturationBrightnessPickerView, didPickColor color: UIColor)
+	@objc(IMGLYSaturationBrightnessPickerView) public class SaturationBrightnessPickerView: UIView
+	public var hue = CGFloat(0)
+	public var color: UIColor
+	public var saturation = CGFloat(1)
+	public var brightness = CGFloat(1)
+	override public func drawRect(rect: CGRect)
+	public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+	public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+SubEditorViewController.swift
+	@objc(IMGLYSubEditorViewController) public class SubEditorViewController: EditorViewController
+	@NSCopying public var fixedFilterStack: FixedFilterStack = FixedFilterStack()
+	public var completionHandler: SubEditorCompletionBlock?
+	public init(fixedFilterStack: FixedFilterStack, configuration: Configuration)
+	required public override init(nibName: String?, bundle: NSBundle?)
+	public override func tappedDone(sender: UIBarButtonItem?)
+	public func updatePreviewImageWithCompletion(completionHandler: PreviewImageGenerationCompletionBlock?)
+GoblinFilter.swift
+	required public init()
+StickerImageView.swift
+	public class StickerImageView: UIImageView
+	public var decrementHandler: (() -> Void)?
+	public var incrementHandler: (() -> Void)?
+	public var rotateLeftHandler: (() -> Void)?
+	public var rotateRightHandler: (() -> Void)?
+	required public init?(coder aDecoder: NSCoder)
+	public override func accessibilityDecrement()
+	public override func accessibilityIncrement()
+BorderEditorViewController.swift
+	@objc(IMGLYBorderEditorViewController) public class BorderEditorViewController: SubEditorViewController
+	public var bordersDataSource = BordersDataSource()
+	public private(set) lazy var bordersClipView: UIView =
+	public override var options: BorderEditorViewControllerOptions
+	public override func tappedDone(sender: UIBarButtonItem?)
+	@objc(IMGLYBorderEditorViewController) public class BorderEditorViewController : SubEditorViewController
+	public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+	public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+	public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+	@objc(IMGLYBorderEditorViewController) public class BorderEditorViewController : SubEditorViewController
+	public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	@objc(IMGLYBorderEditorViewController) public class BorderEditorViewController : SubEditorViewController
+	public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+PitchedFilter.swift
+	required public init()
+X400Filter.swift
+	required public init()
+StickersDataSource.swift
+	@objc(IMGLYStickersDataSourceProtocol) public protocol StickersDataSourceProtocol
+	@objc(IMGLYStickersDataSource) public class StickersDataSource: NSObject, StickersDataSourceProtocol
+	public var stickerCount: Int
+	public func stickerAtIndex(index: Int) -> Sticker
+NoneFilter.swift
+	required public init()
+FixedFilterStack.swift
+	public var enhancementFilter: EnhancementFilter =
+	public var orientationCropFilter = InstanceFactory.orientationCropFilter()
+	public var effectFilter = InstanceFactory.effectFilterWithType(FilterType.None)
+	public var brightnessFilter = InstanceFactory.colorAdjustmentFilter()
+	public var tiltShiftFilter = InstanceFactory.tiltShiftFilter()
+	public var borderFilter = InstanceFactory.borderFilter()
+	public var spriteFilters = [Filter]()
+	public var activeFilters: [Filter]
+	public func rotateStickersRight ()
+	public func rotateStickersLeft ()
+	public func rotateTextRight ()
+	public func rotateTextLeft ()
+	public func flipStickersHorizontal ()
+	public func flipStickersVertical ()
+	public func flipTextHorizontal ()
+	public func flipTextVertical ()
+	required override public init ()
+	public func copyWithZone(zone: NSZone) -> AnyObject
+HighcarbFilter.swift
+	required public init()
+RequestService.swift
+	func get(url: String, cached: Bool, callback: (NSData?, NSError?) -> Void)
+FontQuickSelectorView.swift
+	@objc(IMGLYFontQuickSelectorViewDelegate) public protocol FontQuickSelectorViewDelegate
+	func fontSelectorView(selectorView: FontQuickSelectorView, didSelectFont fontName: String)
+	@objc(IMGLYFontQuickSelectorView) public class FontQuickSelectorView: UIScrollView
+	public var selectedTextColor = UIColor(red:0.22, green:0.62, blue:0.85, alpha:1)
+	public var textColor = UIColor.whiteColor()
+	public var fontQuickSelectorButtonConfigurationClosure: FontQuickSelectorButtonConfigurationClosure? = nil
+	public var selectedFontName = ""
+	public override func layoutSubviews()
+CropRatio.swift
+	public let ratio: CGFloat?
+	public let title: String
+	public let icon: UIImage
+BleachedBlueFilter.swift
+	required public init()
+MainEditorViewController.swift
+	@objc public enum EditorResult: Int
+	case Done
+	case Cancel
+	@objc public enum MainEditorActionType: Int
+	case Magic
+	case Filter
+	case Stickers
+	case Border
+	case Orientation
+	case Focus
+	case Crop
+	case Brightness
+	case Contrast
+	case Saturation
+	case Text
+	@objc(IMGLYMainEditorViewController) public class MainEditorViewController: EditorViewController
+	public var completionBlock: EditorCompletionBlock?
+	public var initialFilterType = FilterType.None
+	public var initialFilterIntensity = NSNumber(double: 0.75)
+	public private(set) var fixedFilterStack = FixedFilterStack()
+	public var highResolutionImage: UIImage?
+	override public func viewDidLoad()
+	public override var options: MainEditorViewControllerOptions
+	override public func tappedDone(sender: UIBarButtonItem?)
+	@objc(IMGLYMainEditorViewController) public class MainEditorViewController : EditorViewController
+	public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+	public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+	@objc(IMGLYMainEditorViewController) public class MainEditorViewController : EditorViewController
+	public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+	@objc(IMGLYMainEditorViewController) public class MainEditorViewController : EditorViewController
+	public func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+CelsiusFilter.swift
+	required public init()
+TextEditorViewController.swift
+	@objc public enum TextAction: Int
+	case SelectFont
+	case SelectColor
+	case SelectBackgroundColor
+	case Add
+	case Delete
+	case AcceptColor
+	case RejectColor
+	case AcceptFont
+	case RejectFont
+	case BringToFront
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController: SubEditorViewController
+	public private(set) lazy var addTextButton: UIButton =
+	public private(set) lazy var deleteTextButton: UIButton =
+	public private(set) lazy var acceptColorButton: UIButton =
+	public private(set) lazy var rejectColorButton: UIButton =
+	public private(set) lazy var acceptFontButton: UIButton =
+	public private(set) lazy var rejectFontButton: UIButton =
+	public private(set) lazy var selectTextFontButton: TextCaptionButton =
+	public private(set) lazy var selectTextColorButton: ImageCaptionButton =
+	public private(set) lazy var selectBackgroundColorButton: ImageCaptionButton =
+	public private(set) lazy var bringToFrontButton: ImageCaptionButton =
+	public private(set) lazy var textClipView: UIView =
+	public private(set) lazy var textField: UITextField =
+	public private(set) lazy var fontSelectorView: FontSelectorView =
+	public private(set) lazy var colorPickerView: ColorPickerView =
+	public private(set) lazy var textColorSelectorView: TextColorSelectorView =
+	public private(set) lazy var fontQuickSelectorView: FontQuickSelectorView =
+	override public func viewDidLoad()
+	public override func viewDidAppear(animated: Bool)
+	override public func viewDidLayoutSubviews()
+	public override var options: TextEditorViewControllerOptions
+	public override func tappedDone(sender: UIBarButtonItem?)
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController : SubEditorViewController
+	public func textColorSelectorView(selectorView: TextColorSelectorView, didSelectColor color: UIColor)
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController : SubEditorViewController
+	public func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+	public func textFieldShouldEndEditing(textField: UITextField) -> Bool
+	public func textFieldShouldReturn(textField: UITextField) -> Bool
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController : SubEditorViewController
+	public func fontSelectorView(fontSelectorView: FontSelectorView, didSelectFontWithName fontName: String)
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController : SubEditorViewController
+	public func fontSelectorView(selectorView: FontQuickSelectorView, didSelectFont fontName: String)
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController : SubEditorViewController
+	public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+	@objc(IMGLYTextEditorViewController) public class TextEditorViewController : SubEditorViewController
+	public func colorPicked(colorPickerView: ColorPickerView, didPickColor color: UIColor)
+	public func canceledColorPicking(colorPickerView: ColorPickerView)
+FridgeFilter.swift
+	required public init()
+RecordingMode.swift
+	@objc public enum RecordingMode: Int
+	case Photo
+	case Video
+DeviceOrientationController.swift
+	public private(set) var captureVideoOrientation: AVCaptureVideoOrientation?
+	public func start()
+	public func stop()
+LithoFilter.swift
+	required public init()
