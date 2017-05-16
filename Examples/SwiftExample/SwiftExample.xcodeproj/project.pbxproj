@@ -14,6 +14,8 @@
 		2B6EC4721E02D46B007525F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B6EC4711E02D46B007525F4 /* Assets.xcassets */; };
 		2B6EC4751E02D46B007525F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6EC4731E02D46B007525F4 /* LaunchScreen.storyboard */; };
 		2B6EC4801E02D66F007525F4 /* license in Resources */ = {isa = PBXBuildFile; fileRef = 2B6EC47F1E02D66F007525F4 /* license */; };
+		3ACD7DD71ECB0032009DAB96 /* PhotoEditorSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACD7DD61ECB0032009DAB96 /* PhotoEditorSDK.framework */; };
+		3ACD7DD81ECB0032009DAB96 /* PhotoEditorSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACD7DD61ECB0032009DAB96 /* PhotoEditorSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3ACD7DD81ECB0032009DAB96 /* PhotoEditorSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,6 +42,7 @@
 		2B6EC4741E02D46B007525F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B6EC4761E02D46B007525F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6EC47F1E02D66F007525F4 /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		3ACD7DD61ECB0032009DAB96 /* PhotoEditorSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PhotoEditorSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACD7DD71ECB0032009DAB96 /* PhotoEditorSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +60,7 @@
 		2B6EC45E1E02D46A007525F4 = {
 			isa = PBXGroup;
 			children = (
+				3ACD7DD61ECB0032009DAB96 /* PhotoEditorSDK.framework */,
 				2B6EC4691E02D46B007525F4 /* SwiftExample */,
 				2B6EC4681E02D46B007525F4 /* Products */,
 			);
@@ -116,6 +122,7 @@
 				TargetAttributes = {
 					2B6EC4661E02D46B007525F4 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = KGAQHR2VD8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -282,13 +289,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KGAQHR2VD8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SwiftExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ly.img.PhotoEditorSDK.Swift.SwiftExample;
+				PRODUCT_BUNDLE_IDENTIFIER = ly.img.xron.isdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -298,13 +306,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KGAQHR2VD8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SwiftExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ly.img.PhotoEditorSDK.Swift.SwiftExample;
+				PRODUCT_BUNDLE_IDENTIFIER = ly.img.xron.isdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
